@@ -9,18 +9,16 @@
  */
 int _printf(const char *format, ...)
 {
-        int i, count = 0, count_fun;
+        int i = 0, count = 0, count_fun;
         int len = strlen(format);
         va_list args;
 
         va_start(args, format);
 
-        for (i = 0; i < num_args; i++)
+        while (format[i] != '\0')
         {
-                if (format[i] == 'c')
-                        count++;
-                else if (format[i] == 's')
-                        count++;
+		count++;
+		i++;
         }
         va_end(args);
         return (count);

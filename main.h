@@ -5,21 +5,23 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <strlen.h>
-
+#include <unistd.h>
 
 /**
  * @specifiers: Struct format
- * @f: The function associated
+ * @in: char
+ * @fm: The function associated
  */
 
 typedef struct specifiers
 {
-	char specifiers;
-	int (*f)(va_list arguments);
-} specifiers_t;
+	char in;
+	int (*fm)(va_list);
+} inputs;
 
 /*prototypes*/
 int _printf(const char *format, ...);
-
+int pchar(va_list arg);
+int pstring(valist arg);
 
 #endif

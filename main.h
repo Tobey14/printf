@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <strlen.h>
 #include <unistd.h>
 
 /**
@@ -15,7 +14,7 @@
 
 typedef struct specifiers
 {
-	char in;
+	char fm;
 	int (*fn)(va_list);
 } inputs;
 

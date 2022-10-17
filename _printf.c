@@ -9,8 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-int i = 0, j = 0, count = 0, count_fun;
-int len = strlen(format);
+int i = 0, j = 0, count = 0;
 va_list args;
 inputs in[] = {
 	{'c', pchar},
@@ -43,13 +42,13 @@ for (; format[i]; i++)
 				return (-1);
 			}
 		}
+	}
 	else
 	{
 		write(1, &format[i], 1);
 		count = count + 1;
 	}
-	}
+}
 va_end(args);
 return (count);
-}
 }

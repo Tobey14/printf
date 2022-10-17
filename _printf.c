@@ -28,7 +28,7 @@ for (; format[i]; i++)
 		{
 			for (; in[j].fm != '\0'; j++)
 			{
-				if (format[i] == in[j].id)
+				if (format[i] == in[j].fm)
 				{
 					count = count + in[j].fn(args);
 					break;

@@ -16,7 +16,7 @@
 typedef struct specifiers
 {
 	char in;
-	int (*fm)(va_list);
+	int (*fn)(va_list);
 } inputs;
 
 /*prototypes*/

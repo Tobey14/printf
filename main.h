@@ -21,5 +21,6 @@ typedef struct specifiers
 int _printf(const char *format, ...);
 int pchar(va_list arg);
 int pstring(va_list arg);
+int pmod(va_list arg);
 
 #endif

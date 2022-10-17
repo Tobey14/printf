@@ -7,11 +7,10 @@
 #include <unistd.h>
 
 /**
- * @specifiers: Struct format
- * @in: char
- * @fm: The function associated
+ * struct specifiers - Struct format
+ * @fm: char
+ * @fn: The function associated
  */
-
 typedef struct specifiers
 {
 	char fm;

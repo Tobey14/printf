@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * pchar - fun to print char
+ * @arg: input
+ * Return: int
+ */
 int pchar(va_list arg)
 {
 	char c = va_arg(arg, int);
@@ -8,6 +13,11 @@ int pchar(va_list arg)
 	return (1);
 }
 
+/**
+ * pstring - fun print string char by char
+ * @arg: input
+ * Return: int
+ */
 int pstring(va_list arg)
 {
 	int i = 0, count = 0;
@@ -26,4 +36,3 @@ int pstring(va_list arg)
 
 	return (count);
 }
-

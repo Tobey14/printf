@@ -1,10 +1,7 @@
 #include "main.h"
-
 /**
  * _printf - print variable arguments.
- *
  * @format: Format by specifier.
- *
  * Return: count of chars.
  */
 int _printf(const char *format, ...)
@@ -33,14 +30,10 @@ for (; format[i]; i++)
 					break;
 				}
 				if (in[j].fm)
-				{
 					break;
-				}
 			}
 			if (format[i] == '\0')
-			{
 				return (-1);
-			}
 		}
 	}
 	else

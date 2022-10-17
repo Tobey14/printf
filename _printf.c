@@ -11,6 +11,7 @@ va_list args;
 inputs in[] = {
 	{'c', pchar},
 	{'s', pstring},
+	{'%', pmod},
 	{'\0', NULL}
 };
 

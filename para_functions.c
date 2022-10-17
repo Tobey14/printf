@@ -36,3 +36,18 @@ int pstring(va_list arg)
 
 	return (count);
 }
+
+/**
+ * pmod - print %char
+ * @arg: input
+ * Return: int
+ */
+int pmod(va_list arg)
+{
+	char c = '%';
+
+	(void) arg;
+
+	write(1, &c, 1);
+	return (1);
+}

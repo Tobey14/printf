@@ -30,12 +30,12 @@ for (; format[i]; i++)
 					count = count + in[j].fn(args);
 					break;
 				}
-				if (in[j].fm)
-					break;
 			}
-			if (format[i] == '\0')
-				return (-1);
+			if (in[j].fm)
+				break;
 		}
+		if (format[i] == '\0')
+			return (-1);
 	}
 	else
 	{

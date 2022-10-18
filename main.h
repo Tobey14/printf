@@ -11,7 +11,7 @@
  * @fm: char
  * @fn: The function associated
  */
-typedef struct specifiers
+typedef struct formatting
 {
 	char *fm;
 	int (*fn)(va_list);
@@ -22,6 +22,8 @@ int _printf(const char *format, ...);
 int pchar(va_list arg);
 int pstring(va_list arg);
 int pmod(va_list arg);
-int pint(va_list arg);
+int pinti(va_list arg);
+int pintd(va_list arg);
+int _putchar(char c);
 
 #endif

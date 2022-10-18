@@ -42,31 +42,68 @@ int pstring(va_list arg)
  * @arg: input
  * Return: int
  */
-int pint(va_list arg)
+int pinti(va_list arg)
 {
-	int i = 1, len = 0;
-	unsigned int n;
-	char c;
-	int j  = va_arg(arg, int);
+	int a[10];
+	int j, m, n, sum, count;
 
-	if (j < 0)
+	n = va_arg(arg, int);
+	count = 0;
+	m = 1000000000;
+	a[0] = n / m;
+	for (j = 1; j < 10; j++)
 	{
-		c = '-';
-		len = len + write(1, &c, 1);
-		n = j * -1;
+		m /= 10;
+		a[j] = (n / m) % 10;
 	}
-	else
-		n = j;
-	while (n / i > 9)
-		i *= 10;
-
-	while (i != 0)
+	if (n < 0)
 	{
-		c = n / i + '0';
-		len = len + write(1, &c, 1);
-		n = n % i;
-		i = i / 10;
+		_putchar('-');
+		count++;
+		for (j = 0; j < 10; j++)
+			a[j] *= -1;
 	}
-	return (len);
+	for (j = 0, sum = 0; j < 10; j++)
+	{
+		sum += a[j];
+		if (sum != 0 || j == 9)
+		{
+			_putchar('0' + a[j]);
+			count++;
+		}
+	}
+	return (count);
 }
 
+int pintd(va_list arg)
+{
+	int a[10];
+	int j, m, n, sum, count;
+
+	n = va_arg(arg, int);
+	count = 0;
+	m = 1000000000;
+	a[0] = n / m;
+	for (j = 1; j < 10; j++)
+	{
+		m /= 10;
+		a[j] = (n / m) % 10;
+	}
+	if (n < 0)
+	{
+		_putchar('-');
+		count++;
+		for (j = 0; j < 10; j++)
+			a[j] *= -1;
+	}
+	for (j = 0, sum = 0; j < 10; j++)
+	{
+		sum += a[j];
+		if (sum != 0 || j == 9)
+		{
+			_putchar('0' + a[j]);
+			count++;
+		}
+	}
+	return (count);
+}	

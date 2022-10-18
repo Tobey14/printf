@@ -5,8 +5,8 @@ unsigned int i;
 inputs in[] = {
 	{"c", pchar},
 	{"s", pstring},
-	{"i", pint},
-	{"d", pint},
+	{"i", pinti},
+	{"d", pintd},
 	{"\0", NULL}
 };
 
@@ -38,7 +38,7 @@ while (format[i])
 {
 	for (; format[i] != '%' && format[i]; i++)
 	{
-		write(1, &format[i], 1);
+		_putchar(format[i]);
 		count++;
 	}
 	if (!format[i])
@@ -52,7 +52,7 @@ while (format[i])
 	}
 	if (!format[i + 1])
 		return (-1);
-	write(1, &format[i], 1);
+	_putchar(format[i]);
 	count++;
 	if (format[i + 1] == '%')
 		i += 2;

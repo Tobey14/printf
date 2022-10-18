@@ -1,47 +1,47 @@
 #include "main.h"
-#include <unistd.h>
 /**
- * _printf - Emulate the original.
- *
+ * _printf - print variable arguments.
  * @format: Format by specifier.
- *
  * Return: count of chars.
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0, count_fun;
-	va_list args;
+int i = 0, j = 0, count = 0;
+va_list args;
+inputs in[] = {
+	{'c', pchar}, {'s', pstring},
+	{'%', pmod}, {'i', pint},
+	{'d', pint}, {'\0', NULL}
+};
 
-	va_start(args, format);
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	while (format[i])
+va_start(args, format);
+for (; format[i]; i++)
+{
+	if (format[i] == '%')
 	{
-		count_fun = 0;
-		if (format[i] == '%')
-		{
-			if (!format[i + 1] || (format[i + 1] == ' ' && !format[i + 2]))
-			{
-				count = -1;
-				break;
-			}
-			count_fun += get_function(format[i + 1], args);
-			if (count_fun == 0)
-				count += _putchar(format[i + 1]);
-			if (count_fun == -1)
-				count = -1;
-			i++;
-		}
-		else
-		{
-			(count == -1) ? (_putchar(format[i])) : (count += _putchar(format[i]));
-		}
 		i++;
-		if (count != -1)
-			count += count_fun;
+		for (; format[i] != '\0'; i++)
+		{
+			for (; in[j].fm != '\0'; j++)
+			{
+				if (format[i] == in[j].fm)
+				{
+					count = count + in[j].fn(args);
+					break;
+				}
+			}
+			if (in[j].fm)
+				break;
+		}
+		if (format[i] == '\0')
+			return (-1);
 	}
-	va_end(args);
-	return (count);
+	else
+	{
+		write(1, &format[i], 1);
+		count = count + 1;
+	}
+}
+va_end(args);
+return (count);
 }

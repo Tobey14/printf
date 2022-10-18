@@ -1,4 +1,9 @@
 #include "main.h"
+
+/**
+ * @check_for_specifier: The function takes argument and returns the count of characters
+ */
+
 static int (*check_for_specifiers(const char *format))(va_list)
 {
 unsigned int i;

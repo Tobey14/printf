@@ -13,7 +13,7 @@
  */
 typedef struct specifiers
 {
-	char fm;
+	char *fm;
 	int (*fn)(va_list);
 } inputs;
 

@@ -1,4 +1,25 @@
 #include "main.h"
+static int (*check_for_specifiers(const char *format))(va_list)
+{
+unsigned int i;
+inputs in[] = {
+	{"c", pchar},
+	{"s", pstring},
+	{"i", pint},
+	{"d", pint},
+	{"\0", NULL}
+};
+
+for (i = 0; in[i].fm != NULL; i++)
+{
+	if (*(in[i].fm) == *format)
+	{
+		break;
+	}
+}
+return (in[i].fn);
+}
+
 /**
  * _printf - print variable arguments.
  * @format: Format by specifier.
@@ -6,41 +27,37 @@
  */
 int _printf(const char *format, ...)
 {
-int i = 0, j = 0, count = 0;
+unsigned int i = 0, count = 0;
 va_list args;
-inputs in[] = {
-	{'c', pchar}, {'s', pstring},
-	{'%', pmod}, {'i', pint},
-	{'d', pint}, {'\0', NULL}
-};
+int (*f)(va_list);
 
+if (format == NULL)
+	return (-1);
 va_start(args, format);
-for (; format[i]; i++)
+while (format[i])
 {
-	if (format[i] == '%')
-	{
-		i++;
-		for (; format[i] != '\0'; i++)
-		{
-			for (; in[j].fm != '\0'; j++)
-			{
-				if (format[i] == in[j].fm)
-				{
-					count = count + in[j].fn(args);
-					break;
-				}
-			}
-			if (in[j].fm)
-				break;
-		}
-		if (format[i] == '\0')
-			return (-1);
-	}
-	else
+	for (; format[i] != '%' && format[i]; i++)
 	{
 		write(1, &format[i], 1);
-		count = count + 1;
+		count++;
 	}
+	if (!format[i])
+		return (count);
+	f = check_for_specifiers(&format[i + 1]);
+	if (f != NULL)
+	{
+		count += f(args);
+		i += 2;
+		continue;
+	}
+	if (!format[i + 1])
+		return (-1);
+	write(1, &format[i], 1);
+	count++;
+	if (format[i + 1] == '%')
+		i += 2;
+	else
+		i++;
 }
 va_end(args);
 return (count);

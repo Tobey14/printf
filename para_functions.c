@@ -7,7 +7,7 @@
  */
 int pchar(va_list arg)
 {
-	char c = va_arg(arg, int);
+	char c = (char)va_arg(arg, int);
 
 	write(1, &c, 1);
 	return (1);
@@ -20,7 +20,7 @@ int pchar(va_list arg)
  */
 int pstring(va_list arg)
 {
-	int i = 0, count = 0;
+	int i, count = 0;
 	char *str = va_arg(arg, char *);
 
 	if (str == NULL)
@@ -31,25 +31,10 @@ int pstring(va_list arg)
 	for (i = 0; str[i]; i++)
 	{
 		write(1, &str[i], 1);
-		count = count + 1;
+		count++;
 	}
 
 	return (count);
-}
-
-/**
- * pmod - print %char
- * @arg: input
- * Return: int
- */
-int pmod(va_list arg)
-{
-	char c = '%';
-
-	(void) arg;
-
-	write(1, &c, 1);
-	return (1);
 }
 
 /**
@@ -68,7 +53,7 @@ int pint(va_list arg)
 	{
 		c = '-';
 		len = len + write(1, &c, 1);
-		n = j + -1;
+		n = j * -1;
 	}
 	else
 		n = j;

@@ -24,6 +24,11 @@ int pstring(va_list arg);
 int pmod(va_list arg);
 int pinti(va_list arg);
 int pintd(va_list arg);
+int pbinary(va_list arg);
 int _putchar(char c);
+int pString(va_list arg);
+int ppoint(va_list arg);
+int pUpper(va_list arg);
+int pLower(va_list arg);
 
 #endif

@@ -15,6 +15,11 @@ inputs in[] = {
 	{"s", pstring},
 	{"i", pinti},
 	{"d", pintd},
+	{"b", pbinary},
+	{"S", pString},
+	{"p", ppoint},
+	{"x", pLower},
+	{"X", pUpper},
 	{"\0", NULL}
 };
 

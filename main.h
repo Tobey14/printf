@@ -4,30 +4,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
-
+#include <unistd.h>
 
 /**
- * struct format - Struct for format
- * @specifiers: Struct format
- * @f: The function associated
+ * struct specifiers - Struct format
+ * @fm: char
+ * @fn: The function associated
  */
-
 typedef struct specifiers
 {
-	char specifiers;
-	int (*f)(va_list);
-} specifiers_t;
+	char fm;
+	int (*fn)(va_list);
+} inputs;
 
 /*prototypes*/
 int _printf(const char *format, ...);
-int get_function(char s, va_list args);
-int _putchar(char c);
-
-/*Conversion specifiers*/
-int print_char(va_list args);
-int print_string(va_list args);
-int print_digit(va_list args);
-int print_mod(va_list args);
-int print_rev_string(va_list args);
+int pchar(va_list arg);
+int pstring(va_list arg);
+int pmod(va_list arg);
+int pint(va_list arg);
 
 #endif

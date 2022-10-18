@@ -51,3 +51,37 @@ int pmod(va_list arg)
 	write(1, &c, 1);
 	return (1);
 }
+
+/**
+ * pint - print interger
+ * @arg: input
+ * Return: int
+ */
+int pint(va_list arg)
+{
+	int i = 1, len = 0;
+	unsigned int n;
+	char c;
+	int j  = va_arg(arg, int);
+
+	if (j < 0)
+	{
+		c = '-';
+		len = len + write(1, &c, 1);
+		n = j + -1;
+	}
+	else
+		n = j;
+	while (n / i > 9)
+		i *= 10;
+
+	while (i != 0)
+	{
+		c = n / i + '0';
+		len = len + write(1, &c, 1);
+		n = n % i;
+		i = i / 10;
+	}
+	return (len);
+}
+

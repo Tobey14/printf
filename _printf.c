@@ -9,10 +9,9 @@ int _printf(const char *format, ...)
 int i = 0, j = 0, count = 0;
 va_list args;
 inputs in[] = {
-	{'c', pchar},
-	{'s', pstring},
-	{'%', pmod},
-	{'\0', NULL}
+	{'c', pchar}, {'s', pstring},
+	{'%', pmod}, {'i', pint},
+	{'d', pint}, {'\0', NULL}
 };
 
 va_start(args, format);

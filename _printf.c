@@ -54,6 +54,11 @@ while (format[i])
 		_putchar(format[i]);
 		count++;
 	}
+	if (format[i] == '%' && format[i + 1] == '%')
+	{
+		_putchar(format[i+1]);
+		count++;
+	}
 	if (!format[i])
 		return (count);
 	f = check_for_specifiers(&format[i + 1]);

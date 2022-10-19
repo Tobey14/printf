@@ -7,7 +7,7 @@
 #include <unistd.h>
 
 /**
- * struct specifiers - Struct format
+ * struct formatting - Struct format
  * @fm: char
  * @fn: The function associated
  */

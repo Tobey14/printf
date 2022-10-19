@@ -62,19 +62,19 @@ int pUpper(va_list arg)
 /**
  * _pow - exp cal
  * @base: exp base
- * @exponent: exp 
+ * @exponent: exp
  * Return: long
  */
 static unsigned long _pow(unsigned int base, unsigned int exponent)
 {
-        unsigned int i;
-        unsigned long ans = base;
+	unsigned int i;
+	unsigned long ans = base;
 
-        for (i = 1; i < exponent; i++)
-        {
-                ans *= base;
-        }
-        return (ans);
+	for (i = 1; i < exponent; i++)
+	{
+		ans *= base;
+	}
+	return (ans);
 }
 
 /**

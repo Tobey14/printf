@@ -38,7 +38,7 @@ int pstring(va_list arg)
 }
 
 /**
- * pint - print interger
+ * pinti - print interger
  * @arg: input
  * Return: int
  */

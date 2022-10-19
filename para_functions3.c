@@ -54,3 +54,17 @@ int pString(va_list arg)
         return (count);
 }
 
+/**
+ * pmod - modulo print
+ * @arg: input
+ * Return: int
+ */
+int pmod(va_list arg)
+{
+	char c = '%';
+
+	(void) arg;
+
+	_putchar(c);
+	return (1);
+}

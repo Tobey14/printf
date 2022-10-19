@@ -20,6 +20,7 @@ inputs in[] = {
 	{"p", ppoint},
 	{"x", pLower},
 	{"X", pUpper},
+	{"%", pmod},
 	{"\0", NULL}
 };
 
@@ -52,11 +53,6 @@ while (format[i])
 	for (; format[i] != '%' && format[i]; i++)
 	{
 		_putchar(format[i]);
-		count++;
-	}
-	if (format[i] == '%' && format[i + 1] == '%')
-	{
-		_putchar(format[i+1]);
 		count++;
 	}
 	if (!format[i])

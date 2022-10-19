@@ -20,6 +20,8 @@ inputs in[] = {
 	{"p", ppoint},
 	{"x", pLower},
 	{"X", pUpper},
+	{"u", pUnsigned},
+	{"o", pOctal},
 	{"\0", NULL}
 };
 

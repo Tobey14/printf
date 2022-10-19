@@ -30,5 +30,7 @@ int pString(va_list arg);
 int ppoint(va_list arg);
 int pUpper(va_list arg);
 int pLower(va_list arg);
+int pUnsigned(va_list arg);
+int pOctal(va_list arg);
 
 #endif

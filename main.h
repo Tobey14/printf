@@ -31,5 +31,7 @@ int ppoint(va_list arg);
 int pUpper(va_list arg);
 int pLower(va_list arg);
 int pmod(va_list arg);
+int punsign(va_list arg);
+int poct(va_list arg);
 
 #endif

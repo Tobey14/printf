@@ -21,6 +21,8 @@ inputs in[] = {
 	{"x", pLower},
 	{"X", pUpper},
 	{"%", pmod},
+	{"u", punsign},
+	{"o", poct},
 	{"\0", NULL}
 };
 

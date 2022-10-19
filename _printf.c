@@ -52,6 +52,7 @@ if (format == NULL)
 va_start(args, format);
 while (format[i])
 {
+	here:
 	for (; format[i] != '%' && format[i]; i++)
 	{
 		_putchar(format[i]);
@@ -60,6 +61,14 @@ while (format[i])
 	if (!format[i])
 		return (count);
 	f = check_for_specifiers(&format[i + 1]);
+	if (format[i] == '%' && format[i + 1] == '%' && format[i + 2] == '%' && format[i + 3] != '%')
+	{
+		_putchar(format[i+1]);
+		_putchar(format[i+2]);
+		i = i + 3;
+		count++;
+		goto here;
+	}
 	if (f != NULL)
 	{
 		count += f(args);
